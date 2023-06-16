@@ -2,37 +2,35 @@
 using System.IO;
 
 namespace FileReaderLibrary
-{ 
+{
     class Program
     {
-
         static void Main()
         {
             try
             {
                 // Prompt the user to enter or to paste the file path
-                Console.WriteLine("Enter or paste the file path:");
+                Console.WriteLine("Enter the file path:");
                 string filePath = Console.ReadLine();
 
-                // Check if the file exists
                 if (File.Exists(filePath))
                 {
-                    // Check the file type based on the file extension
+                    // Determine the file type based on the file extension
                     FileType fileType = GetFileType(filePath);
 
-                    // Verify if the file type is text
-                    if (fileType == FileType.Text)
+                    // Get the appropriate file reader based on the file type
+                    IFileReader fileReader = GetFileReader(fileType);
+                    
+                    if (fileReader != null)
                     {
-                        // Read the contents of the text file
-                        string fileContents = File.ReadAllText(filePath);
-
-                        // Display the file contents to the user
+                        // Read and display the contents of the file
+                        string fileContents = fileReader.ReadFileContents(filePath);
                         Console.WriteLine("\nFile Contents:");
                         Console.WriteLine(fileContents);
                     }
                     else
                     {
-                        Console.WriteLine("Invalid file type. Only text files are supported.");
+                        Console.WriteLine("Unsupported file type. Only text and XML files are supported.");
                     }
                 }
                 else
@@ -60,8 +58,27 @@ namespace FileReaderLibrary
                 case ".txt":
                     return FileType.Text;
 
+                case ".xml":
+                    return FileType.XML;
+
                 default:
-                    throw new NotSupportedException("Unsupported file type. Only text files are supported.");
+                    throw new NotSupportedException("Unsupported file type. Only text and XML files are supported.");
+            }
+        }
+
+        // Method to get the appropriate file reader based on the file type
+        static IFileReader GetFileReader(FileType fileType)
+        {
+            switch (fileType)
+            {
+                case FileType.Text:
+                    return new TextFileReader();
+
+                case FileType.XML:
+                    return new XMLFileReader();
+
+                default:
+                    return null;
             }
         }
     }

@@ -35,11 +35,13 @@ Any advise for common problems or issues.
 Contributors names and contact info
 
 Ümit Gültekin  
-Email: gultekinumittr@hotmail.com
+Email: gultekinumittr@hotmail.com  
 Account on GitHub: dhrgultekin
 
 ## Version History
 
+* v2
+    * Extended file reader library to support XML files
 * v1
     * Read Text File
 

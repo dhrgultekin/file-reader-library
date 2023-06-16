@@ -6,6 +6,7 @@ namespace FileReaderLibrary
     public enum FileType
     {
         Text,
+        XML
         // Add more file types as needed
     }
 }
