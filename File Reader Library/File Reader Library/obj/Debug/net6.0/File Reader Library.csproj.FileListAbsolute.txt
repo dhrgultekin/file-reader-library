@@ -1,0 +1,15 @@
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\bin\Debug\net6.0\File Reader Library.exe
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\bin\Debug\net6.0\File Reader Library.deps.json
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\bin\Debug\net6.0\File Reader Library.runtimeconfig.json
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\bin\Debug\net6.0\File Reader Library.dll
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\bin\Debug\net6.0\File Reader Library.pdb
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\obj\Debug\net6.0\File Reader Library.csproj.AssemblyReference.cache
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\obj\Debug\net6.0\File Reader Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\obj\Debug\net6.0\File Reader Library.AssemblyInfoInputs.cache
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\obj\Debug\net6.0\File Reader Library.AssemblyInfo.cs
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\obj\Debug\net6.0\File Reader Library.csproj.CoreCompileInputs.cache
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\obj\Debug\net6.0\File Reader Library.dll
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\obj\Debug\net6.0\refint\File Reader Library.dll
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\obj\Debug\net6.0\File Reader Library.pdb
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\obj\Debug\net6.0\File Reader Library.genruntimeconfig.cache
+C:\Development\C#\Repos\Ordina\file-reader-library\file-reader-library\File Reader Library\File Reader Library\obj\Debug\net6.0\ref\File Reader Library.dll
