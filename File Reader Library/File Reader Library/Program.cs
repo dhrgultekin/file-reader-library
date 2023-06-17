@@ -20,7 +20,7 @@ namespace FileReaderLibrary
                     RoleBasedSecurityContext securityContext = new RoleBasedSecurityContext();
 
                     // Define the role permissions for XML files
-                    securityContext.AddRolePermissions(UserRole.Admin, new List<string> { "C:\\Temp\\Test\\allowed.xml", "C:\\Temp\\Test\\sample.xml" });
+                    securityContext.AddRolePermissions(UserRole.Admin, new List<string> { "C:\\Temp\\Test\\allowed.xml", "C:\\Temp\\Test\\test.txt" });
                     securityContext.AddRolePermissions(UserRole.User, new List<string> { "C:\\Temp\\Test\\sample.xml" });
 
                     // Determine the file type based on the file extension
@@ -82,8 +82,8 @@ namespace FileReaderLibrary
                 case FileType.Text:
                     // Create an instance of the EncryptionContext with the desired encryption strategy
                     EncryptionContext encryptionContext = new EncryptionContext(new ReverseEncryptionStrategy());
-                    // Pass the EncryptionContext to the TextFileReader constructor
-                    return new TextFileReader(encryptionContext);
+                    // Pass the RoleBasedSecurityContext and the encryptionContext to the TextFileReader constructor
+                    return new TextFileReader(securityContext, encryptionContext);
 
                 case FileType.XML:
                     // Pass the RoleBasedSecurityContext and the encryption strategy to the XmlFileReader constructor
