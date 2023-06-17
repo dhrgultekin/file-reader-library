@@ -8,10 +8,14 @@ namespace FileReaderLibrary
         // Field _securityContext of type RoleBasedSecurityContext, which will hold the security context used for file access permissions
         private readonly RoleBasedSecurityContext _securityContext;
 
-        // The class has a constructor that takes a RoleBasedSecurityContext object as a parameter and assigns it to the _securityContext field
-        public XmlFileReader(RoleBasedSecurityContext securityContext)
+        // Field _encryptionStrategy of type IEncryptionStrategy
+        private readonly IEncryptionStrategy _encryptionStrategy;
+
+        // The class has a constructor that takes a RoleBasedSecurityContext object and an IEncryptionStrategy object as parameters, and assigns them to the corresponding fields
+        public XmlFileReader(RoleBasedSecurityContext securityContext, IEncryptionStrategy encryptionStrategy)
         {
             _securityContext = securityContext;
+            _encryptionStrategy = encryptionStrategy;
         }
 
         // The ReadFileContents method is implemented as required by the IFileReader interface
@@ -21,8 +25,12 @@ namespace FileReaderLibrary
             // Checks whether the security context allows reading the file by calling the CanReadFile method of the _securityContext object
             if (_securityContext.CanReadFile(filePath))
             {
-                string fileContents = File.ReadAllText(filePath);
-                return fileContents;
+                // Read the encrypted contents of the file
+                string encryptedContents = File.ReadAllText(filePath);
+                // Decrypt the contents using the Decrypt method of _encryptionContext object 
+                string decryptedContents = _encryptionStrategy.Decrypt(encryptedContents);
+                // Return the decrypted contents
+                return decryptedContents;
             }
             else
             {

@@ -8,8 +8,10 @@ namespace FileReaderLibrary
 {
     class TextFileReader : IFileReader
     {
+        // Field _encryptionStrategy of type IEncryptionStrategy
         private readonly EncryptionContext _encryptionContext;
 
+        // The class has a constructor that takes an IEncryptionStrategy object as parameter, and assign them to the corresponding field
         public TextFileReader(EncryptionContext encryptionContext)
         {
             _encryptionContext = encryptionContext;
@@ -19,8 +21,8 @@ namespace FileReaderLibrary
         {
             // Read the encrypted contents of the file
             string encryptedContents = File.ReadAllText(filePath);
-            // Decrypt the contents using the _encryptionContext method
-            string decryptedContents = _encryptionContext.Encrypt(encryptedContents);
+            // Decrypt the contents using the Decrypt method of _encryptionContext object
+            string decryptedContents = _encryptionContext.Decrypt(encryptedContents);
             // Return the decrypted contents
             return decryptedContents;
         }

@@ -40,6 +40,8 @@ Account on GitHub: dhrgultekin
 
 ## Version History
 
+* v5
+    * Extended file reader library to support encrypted XML files
 * v4
     * Extended file reader library to support to read XML files in role-based security
 * v3

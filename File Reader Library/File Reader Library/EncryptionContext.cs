@@ -15,9 +15,9 @@ namespace FileReaderLibrary
             _encryptionStrategy = encryptionStrategy;
         }
 
-        public string Encrypt(string input)
+        public string Decrypt(string input)
         {
-            return _encryptionStrategy.Encrypt(input);
+            return _encryptionStrategy.Decrypt(input);
         }
     }
 }

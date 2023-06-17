@@ -26,8 +26,8 @@ namespace FileReaderLibrary
                     // Determine the file type based on the file extension
                     FileType fileType = GetFileType(filePath);
 
-                    // Get the appropriate file reader based on the file type and security context
-                    IFileReader fileReader = GetFileReader(fileType, securityContext);
+                    // Get the appropriate file reader based on the file type and security context and encryption strategy
+                    IFileReader fileReader = GetFileReader(fileType, securityContext, new ReverseEncryptionStrategy());
 
                     if (fileReader != null)
                     {
@@ -75,7 +75,7 @@ namespace FileReaderLibrary
         }
 
         // Method to get the appropriate file reader based on the file type
-        static IFileReader GetFileReader(FileType fileType, RoleBasedSecurityContext securityContext)
+        static IFileReader GetFileReader(FileType fileType, RoleBasedSecurityContext securityContext, IEncryptionStrategy encryptionStrategy)
         {
             switch (fileType)
             {
@@ -86,8 +86,8 @@ namespace FileReaderLibrary
                     return new TextFileReader(encryptionContext);
 
                 case FileType.XML:
-                    // Pass the RoleBasedSecurityContext to the XmlFileReader constructor
-                    return new XmlFileReader(securityContext);
+                    // Pass the RoleBasedSecurityContext and the encryption strategy to the XmlFileReader constructor
+                    return new XmlFileReader(securityContext, encryptionStrategy);
 
                 default:
                     return null;

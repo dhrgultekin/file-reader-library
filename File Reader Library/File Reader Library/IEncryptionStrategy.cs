@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace FileReaderLibrary
 {
-    interface IEncryptionStrategy
+    public interface IEncryptionStrategy
     {
-        string Encrypt(string input);
+        string Decrypt(string input);
     }
 }

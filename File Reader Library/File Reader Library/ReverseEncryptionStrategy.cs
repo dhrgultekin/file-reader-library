@@ -8,7 +8,7 @@ namespace FileReaderLibrary
 {
     class ReverseEncryptionStrategy : IEncryptionStrategy
     {
-        public string Encrypt(string input)
+        public string Decrypt(string input)
         {
             // Reverse the input
             char[] charArray = input.ToCharArray();
