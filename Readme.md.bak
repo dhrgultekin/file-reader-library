@@ -40,8 +40,6 @@ Account on GitHub: dhrgultekin
 
 ## Version History
 
-* v8
-    * Extended file reader library to support encrypted Json files
 * v7
     * Extended file reader library to support Json files
 * v6

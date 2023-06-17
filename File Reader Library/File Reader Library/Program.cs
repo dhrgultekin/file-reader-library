@@ -93,7 +93,7 @@ namespace FileReaderLibrary
                     return new XmlFileReader(securityContext, encryptionStrategy);
 
                 case FileType.Json:
-                    return new JsonFileReader();
+                    return new JsonFileReader(encryptionStrategy);
 
                 default:
                     return null;
