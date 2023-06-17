@@ -40,6 +40,8 @@ Account on GitHub: dhrgultekin
 
 ## Version History
 
+* v7
+    * Extended file reader library to support Json files
 * v6
     * Extended file reader library to support to read Text files in role-based security
 * v5

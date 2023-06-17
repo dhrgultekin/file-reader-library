@@ -69,8 +69,11 @@ namespace FileReaderLibrary
                 case ".xml":
                     return FileType.XML;
 
+                case ".json":
+                    return FileType.Json;
+
                 default:
-                    throw new NotSupportedException("Unsupported file type. Only text and XML files are supported.");
+                    throw new NotSupportedException("Unsupported file type. Only text, XML and Json files are supported.");
             }
         }
 
@@ -88,6 +91,9 @@ namespace FileReaderLibrary
                 case FileType.XML:
                     // Pass the RoleBasedSecurityContext and the encryption strategy to the XmlFileReader constructor
                     return new XmlFileReader(securityContext, encryptionStrategy);
+
+                case FileType.Json:
+                    return new JsonFileReader();
 
                 default:
                     return null;
