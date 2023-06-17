@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace FileReaderLibrary
@@ -15,12 +16,19 @@ namespace FileReaderLibrary
 
                 if (File.Exists(filePath))
                 {
+                    // Create the role-based security context
+                    RoleBasedSecurityContext securityContext = new RoleBasedSecurityContext();
+
+                    // Define the role permissions for XML files
+                    securityContext.AddRolePermissions(UserRole.Admin, new List<string> { "C:\\Temp\\Test\\allowed.xml", "C:\\Temp\\Test\\sample.xml" });
+                    securityContext.AddRolePermissions(UserRole.User, new List<string> { "C:\\Temp\\Test\\sample.xml" });
+
                     // Determine the file type based on the file extension
                     FileType fileType = GetFileType(filePath);
 
-                    // Get the appropriate file reader based on the file type
-                    IFileReader fileReader = GetFileReader(fileType);
-                    
+                    // Get the appropriate file reader based on the file type and security context
+                    IFileReader fileReader = GetFileReader(fileType, securityContext);
+
                     if (fileReader != null)
                     {
                         // Read and display the contents of the file
@@ -67,7 +75,7 @@ namespace FileReaderLibrary
         }
 
         // Method to get the appropriate file reader based on the file type
-        static IFileReader GetFileReader(FileType fileType)
+        static IFileReader GetFileReader(FileType fileType, RoleBasedSecurityContext securityContext)
         {
             switch (fileType)
             {
@@ -78,7 +86,8 @@ namespace FileReaderLibrary
                     return new TextFileReader(encryptionContext);
 
                 case FileType.XML:
-                    return new XMLFileReader();
+                    // Pass the RoleBasedSecurityContext to the XmlFileReader constructor
+                    return new XmlFileReader(securityContext);
 
                 default:
                     return null;
