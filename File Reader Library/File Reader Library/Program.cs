@@ -20,7 +20,7 @@ namespace FileReaderLibrary
                     RoleBasedSecurityContext securityContext = new RoleBasedSecurityContext();
 
                     // Define the role permissions for XML files
-                    securityContext.AddRolePermissions(UserRole.Admin, new List<string> { "C:\\Temp\\Test\\allowed.xml", "C:\\Temp\\Test\\test.txt" });
+                    securityContext.AddRolePermissions(UserRole.Admin, new List<string> { "C:\\Temp\\Test\\allowed.xml", "C:\\Temp\\Test\\test.txt", "C:\\Temp\\Test\\schema.json" });
                     securityContext.AddRolePermissions(UserRole.User, new List<string> { "C:\\Temp\\Test\\sample.xml" });
 
                     // Determine the file type based on the file extension
@@ -93,7 +93,8 @@ namespace FileReaderLibrary
                     return new XmlFileReader(securityContext, encryptionStrategy);
 
                 case FileType.Json:
-                    return new JsonFileReader(encryptionStrategy);
+                    // Pass the RoleBasedSecurityContext and the encryption strategy to the JsonFileReader constructor
+                    return new JsonFileReader(securityContext, encryptionStrategy);
 
                 default:
                     return null;
