@@ -40,6 +40,8 @@ Account on GitHub: dhrgultekin
 
 ## Version History
 
+* v10
+    * CLI added
 * v9
     * Extended file reader library to support to read Json files in role-based security
 * v8
