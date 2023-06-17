@@ -72,7 +72,10 @@ namespace FileReaderLibrary
             switch (fileType)
             {
                 case FileType.Text:
-                    return new TextFileReader();
+                    // Create an instance of the EncryptionContext with the desired encryption strategy
+                    EncryptionContext encryptionContext = new EncryptionContext(new ReverseEncryptionStrategy());
+                    // Pass the EncryptionContext to the TextFileReader constructor
+                    return new TextFileReader(encryptionContext);
 
                 case FileType.XML:
                     return new XMLFileReader();

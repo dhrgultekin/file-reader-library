@@ -40,6 +40,8 @@ Account on GitHub: dhrgultekin
 
 ## Version History
 
+* v3
+    * Extended file reader library to support encrypted Text Files
 * v2
     * Extended file reader library to support XML files
 * v1
